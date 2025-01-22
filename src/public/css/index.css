@@ -2,6 +2,7 @@
     margin: 0 auto;
     padding: 60px 15px;
     max-width: 1230px;
+    height: auto;
 }
 
 .content__header {
@@ -14,16 +15,12 @@
     margin: 0px;
 }
 
-.add-form {
+.create-form {
         width: 20%;
         text-align: center;
 }
 
-.add-form__item {
-    width: 50%;
-}
-
-.add-form__item-button {
+.create-form__button {
     width: 100%;
 }
 
@@ -61,79 +58,23 @@
     cursor: pointer;
 }
 
-.todo-table {
-    margin: 30px auto;
-    width: 70%;
-    text-align: left;
-}
-
-.todo-table__inner {
+.product-items {
+    margin: 0 auto;
     width: 100%;
-}
-
-.todo-table__row {
-    border-bottom: 1px solid #ddd;
-}
-
-.todo-table__header {
-    padding: 12px;
-    width: 20%;
-    text-align: left;
-    font-weight: bold;
-}
-
-.todo-table__item:first-of-type {
-    padding: 12px;
-    width: 90%;
-}
-
-.update-form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
-.update-form__item {
-    width: 80%;
-    line-height: 50%;
-}
-
-.update-form__item-input {
+.product-list {
+    margin-top: 10px;
     width: 100%;
-    outline: none;
-    border: none;
 }
 
-.update-form__button {
+.products {
+    
+    
+}
+
+.product-card {
     width: 50px;
-}
-
-.update-form__button-submit {
-    padding: 5px;
-    width: 100%;
-    border: none;
-    border-radius: 3px;
-    background: #0000ff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.delete-form__button {
-    width: 50px;
-}
-
-.delete-form__button-submit {
-    padding: 5px;
-    width: 100%;
-    border: none;
-    border-radius: 3px;
-    background: #ff0000;
-    color: #fff;
-    cursor: pointer;
-}
-
-.pagianation {
-    /*paginateメソッドの矢印の大きさ調整のために追加*/
-    width: 30px;
-    height: 30px;
+    height: 40px;
 }

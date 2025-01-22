@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\Season;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -15,13 +16,15 @@ class ProductController extends Controller
     }
 
     public function create() {
-        return view('products.create');
+        $seasons = Season::all();
+        return view('products.create', compact('seasons'));
     }
 
     public function store(ProductRequest $request) {
         $imagePath = $request->file('image')->store('products','public');
         $product = Product::create(['name' => '$request->name'],['price' => '$request->price'], ['image' => $imagePath], ['description' => '$request->description'], ['season' => '$request->season']);
-        return redirect('products.show', $product);
+        $product->seasons()->attach($validated['season']);
+        return redirect('products.index');
     }
 
     public function show(Product $product)
@@ -29,9 +32,10 @@ class ProductController extends Controller
         return view('products.show', compact('product'));
     }
 
-    public function search($keyword)
+    public function search(Request $request)
     {
-        $products = Product::where('name', 'LIKE', "%{$keyword}%")->get();
+        $fruits = Product::with('product')->KeywordSearch($request->keyword)->get();
+        $products = Product::all();
         return view('products.index', compact('products'));
     }
 }

@@ -26,9 +26,9 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required',
             'price' => 'required|integer|between:0,10000',
-            'season' => 'required',
+            'season' => 'required|array',
             'description' => 'required|max:120',
-            'image' => 'required|extensions:jpeg,png',
+            'image' => 'required|mimes:jpeg,png',
         ];
     }
 
