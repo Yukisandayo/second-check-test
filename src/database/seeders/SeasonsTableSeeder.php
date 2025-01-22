@@ -23,14 +23,7 @@ class SeasonsTableSeeder extends Seeder
         ];
 
         foreach ($seasons as $seasonData) {
-            Season::create(array_merge($seasonData, ['product_id' => null]));
-
-        $productId = Product::first()->id;
-
-        Season::create([
-            'name' => $seasonData['name'],
-            'product_id' => $productId,
-        ]);
+        Season::create($seasonData);
         }
     }
 }

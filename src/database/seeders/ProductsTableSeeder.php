@@ -95,11 +95,7 @@ class ProductsTableSeeder extends Seeder
         foreach ($products as $productData) {
             $product = Product::create($productData);
 
-            $seasons = Season::where('product_id', null)->get();
-        foreach ($seasons as $season) {
-            $season->product_id = $product->id;
-            $season->save();
-        }
+            $product->seasons()->sync($productData['season']);
         }
     }
 }
